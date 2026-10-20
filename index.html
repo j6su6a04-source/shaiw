@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>詩間｜用詩作治癒心</title>
+  <meta name="description" content="用詩作治癒心，給心一個安靜停靠的地方。">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #39352f;
+      --muted: #777067;
+      --paper: #faf7f0;
+      --accent: #8c6f59;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 20% 15%, rgba(220, 203, 177, .35), transparent 38%),
+        radial-gradient(ellipse at 85% 80%, rgba(202, 189, 169, .25), transparent 35%),
+        var(--paper);
+      font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    }
+    main {
+      width: min(720px, 100%);
+      padding: clamp(32px, 8vw, 76px);
+      text-align: center;
+      border: 1px solid rgba(140, 111, 89, .25);
+      background: rgba(255, 253, 248, .72);
+      box-shadow: 0 18px 60px rgba(65, 50, 35, .07);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: .8rem;
+      letter-spacing: .28em;
+      margin-bottom: 26px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: .16em;
+    }
+    .subtitle {
+      margin: 20px 0 42px;
+      color: var(--muted);
+      letter-spacing: .18em;
+      font-size: 1rem;
+    }
+    .poem {
+      margin: 0 auto 36px;
+      line-height: 2.3;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      white-space: pre-line;
+    }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      padding: 11px 25px;
+      color: var(--accent);
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    button:hover { background: var(--accent); color: white; }
+    #message { min-height: 1.5em; margin-top: 22px; color: var(--muted); }
+    footer { margin-top: 52px; font: .78rem sans-serif; color: #9a9287; letter-spacing: .08em; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">一處讓心歇息的角落</div>
+    <h1>詩間</h1>
+    <p class="subtitle">用詩作治癒心</p>
+    <p class="poem">願你在字句之間，找到片刻安靜。
+願每一首詩，都替難以言說的心情，
+留下一個溫柔的位置。</p>
+    <button id="comfortButton" type="button">給今天的自己一句話</button>
+    <p id="message" aria-live="polite"></p>
+    <footer>慢慢讀，慢慢生活。</footer>
+  </main>
+  <script>
+    const messages = [
+      "你不必每一天都很堅強，休息也是前進。",
+      "有些答案不急著找到，時間會陪你慢慢明白。",
+      "今天的你，已經很努力了。",
+      "允許自己有情緒，也允許自己重新開始。",
+      "生活不必時時盛開，安靜生長也很好。"
+    ];
+    document.getElementById("comfortButton").addEventListener("click", () => {
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById("message").textContent = message;
+    });
+  </script>
+</body>
+</html>
